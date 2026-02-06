@@ -1,7 +1,0 @@
----
-type: specs.openrewrite.org/v1beta/recipe
-name: org.operaton.rewrite.OperatonRecipeSet
-displayName: Operaton rewrite recipe set
-description: Collection of OpenRewrite recipes for Operaton upgrades and best practices.
-recipeList:
-  - org.operaton.rewrite.OperatonNoopRecipe
