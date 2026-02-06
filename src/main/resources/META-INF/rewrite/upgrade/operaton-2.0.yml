@@ -15,7 +15,7 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.operaton.rewrite.UpgradeOperaton_2_0
+name: org.operaton.rewrite.upgrade.UpgradeOperaton_2_0
 displayName: Operaton rewrite recipe set
 description: Migrate to Operaton 2.0
 recipeList:
