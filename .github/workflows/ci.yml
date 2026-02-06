@@ -2,6 +2,13 @@
 name: ci
 
 on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry Run: Skips remote operations when true'
+        type: boolean
+        required: true
+        default: false
   push:
     branches:
       - main
@@ -51,9 +58,15 @@ jobs:
 
   deploy:
     if: |
-      github.ref == 'refs/heads/main' &&
-      github.event_name == 'push' &&
-      !contains(github.event.head_commit.message, '[releng]')
+      (
+        github.ref == 'refs/heads/main' &&
+        github.event_name == 'push' &&
+        !contains(github.event.head_commit.message, '\[releng\]')
+      ) || (
+        github.ref == 'refs/heads/main' &&
+        github.event_name == 'workflow_dispatch' &&
+        github.event.inputs.dry_run == 'false'
+      )
     # '[releng]' is used by JReleaser and a good heuristic to avoid deploying these
     needs: build
     runs-on: ubuntu-latest
