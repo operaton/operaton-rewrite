@@ -1,6 +1,6 @@
 project:
-  name: Operaton - Migrate from Camunda Recipe
-  description: An Open Rewrite Recipe to migrate a Camunda 7 Instance to Operaton
+  name: Operaton - OpenRewrite recipes for Operaton upgrades
+  description: OpenRewrite recipes for Operaton upgrades (1.0.x → 2.0.x), resolution of deprecations and best practices.
   links:
     homepage: https://operaton.org
     help: https://forum.operaton.org/
@@ -28,6 +28,7 @@ project:
     - 'bpmn'
     - 'process automation'
     - 'java'
+    - 'openrewrite'
 
 platform:
   replacements:
