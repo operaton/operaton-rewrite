@@ -72,7 +72,7 @@ jobs:
         env:
           GPG_SECRET_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Deploy to Maven Central
-        run: ./mvnw clean deploy -Prelease --batch-mode
+        run: ./mvnw clean deploy -Prelease
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
