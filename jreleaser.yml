@@ -1,5 +1,5 @@
 project:
-  name: Operaton - OpenRewrite recipes for Operaton upgrades
+  name: Operaton Rewrite Recipes
   description: OpenRewrite recipes for Operaton upgrades (1.0.x → 2.0.x), resolution of deprecations and best practices.
   links:
     homepage: https://operaton.org

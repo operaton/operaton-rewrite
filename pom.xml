@@ -8,7 +8,7 @@
     <artifactId>operaton-rewrite</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <name>Operaton Rewrite Recipes</name>
-    <description>OpenRewrite recipes for Operaton upgrades and best practices.</description>
+    <description>OpenRewrite recipes for Operaton upgrades (1.0.x → 2.0.x), resolution of deprecations and best practices.</description>
     <packaging>jar</packaging>
 
     <properties>
