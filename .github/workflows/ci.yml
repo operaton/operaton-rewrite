@@ -1,0 +1,79 @@
+---
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - "*"
+    paths-ignore:
+      - '.github/workflows/**'
+      - '!.github/workflows/ci.yml'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflows/**'
+      - '!.github/workflows/ci.yml'
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 17
+      - name: verify
+        run: ./mvnw verify
+      - name: Publish Test Report
+        if: always()
+        uses: mikepenz/action-junit-report@v4 #https://github.com/marketplace/actions/junit-report-action
+        with:
+          report_paths: ${{ github.workspace }}/**/target/surefire-reports/*.xml
+          require_passed_tests: true
+      - name: Upload Surefire Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: ${{ github.workspace }}/**/target/surefire-reports/**
+          retention-days: 30
+
+deploy:
+  if: |
+    github.ref == 'refs/heads/main' &&
+    github.event_name == 'push' &&
+    !contains(github.event.head_commit.message, '[releng]')
+  # '[releng]' is used by JReleaser and a good heuristic to avoid deploying these
+  needs: build
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-java@v4
+      with:
+        distribution: zulu
+        java-version: 17
+    - name: Import GPG key
+      run: |
+        echo "$GPG_SECRET_KEY" | gpg --batch --import
+        gpg --list-secret-keys --keyid-format LONG
+      env:
+        GPG_SECRET_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+    - name: Deploy to Maven Central
+      run: ./mvnw clean deploy -Prelease --batch-mode
+      env:
+        MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+        MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
