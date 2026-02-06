@@ -71,4 +71,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <!-- Release repository removed - releases are handled exclusively by JReleaser -->
+    </distributionManagement>
 </project>
