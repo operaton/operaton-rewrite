@@ -14,7 +14,7 @@
 auto-merge-rules:
   # OpenRewrite dependencies - can be auto-merged after successful build
   - author: 'dependabot[bot]'
-    labels: ['dependencies:maven']
+    labels: ['dependencies']
     includes:
       - 'org.openrewrite*'
       - 'org.openrewrite.recipe*'
