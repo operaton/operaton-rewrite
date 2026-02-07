@@ -90,8 +90,8 @@ jobs:
             <servers>
               <server>
                 <id>central</id>
-                <username>${{ secrets.OSSRH_USERNAME }}</username>
-                <password>${{ secrets.OSSRH_PASSWORD }}</password>
+                <username>${{ secrets.OSSRH_USERNAME2 }}</username>
+                <password>${{ secrets.OSSRH_PASSWORD2 }}</password>
               </server>
             </servers>
           </settings>
