@@ -84,7 +84,19 @@ jobs:
         env:
           GPG_SECRET_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Deploy to Maven Central
-        run: ./mvnw clean deploy -Prelease
+        run: |
+          cat > .mvn/settings.xml <<EOF
+          <settings>
+            <servers>
+              <server>
+                <id>central</id>
+                <username>${{ secrets.OSSRH_USERNAME }}</username>
+                <password>${{ secrets.OSSRH_PASSWORD }}</password>
+              </server>
+            </servers>
+          </settings>
+          EOF
+          ./mvnw clean deploy -s ./.mvn/settings.xml -Prelease
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
