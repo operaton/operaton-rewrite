@@ -44,6 +44,16 @@
             <artifactId>rewrite-java-17</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-java-21</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openrewrite</groupId>
+            <artifactId>rewrite-java-25</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <!-- rewrite-java dependencies only necessary for Java Recipe development -->
         <dependency>
             <groupId>org.openrewrite</groupId>
