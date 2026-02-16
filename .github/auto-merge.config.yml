@@ -22,7 +22,8 @@ auto-merge-rules:
       - 'org.assertj*'
       - 'org.junit*'
       # Maven plugins
-      - 'org.apache.maven.plugins'
+      - 'org.apache.maven.plugins*'
+      - 'org.sonatype.central:central-publishing-maven-plugin'
 
   # GitHub Actions from GitHub (actions/*) can be auto-merged
   - author: 'dependabot[bot]'
