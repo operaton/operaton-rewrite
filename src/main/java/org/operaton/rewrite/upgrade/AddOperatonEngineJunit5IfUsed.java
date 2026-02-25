@@ -31,6 +31,7 @@ public class AddOperatonEngineJunit5IfUsed extends ScanningRecipe<AtomicBoolean>
 
     private static final String GROUP_ID = "org.operaton.bpm";
     private static final String ARTIFACT_ID = "operaton-engine";
+    private static final String VERSION = "2.0.0-M3";
     private static final String CLASSIFIER = "junit5";
     private static final String SCOPE = "test";
     private static final String CLASS_PACKAGE = "org.operaton.bpm.engine.test.junit5.";
@@ -100,6 +101,7 @@ public class AddOperatonEngineJunit5IfUsed extends ScanningRecipe<AtomicBoolean>
                 "<dependency>\n" +
                 "    <groupId>" + GROUP_ID + "</groupId>\n" +
                 "    <artifactId>" + ARTIFACT_ID + "</artifactId>\n" +
+                "    <version>" + VERSION + "</version>\n" +
                 "    <classifier>" + CLASSIFIER + "</classifier>\n" +
                 "    <scope>" + SCOPE + "</scope>\n" +
                 "</dependency>"
@@ -112,6 +114,7 @@ public class AddOperatonEngineJunit5IfUsed extends ScanningRecipe<AtomicBoolean>
                 "    <dependency>\n" +
                 "        <groupId>" + GROUP_ID + "</groupId>\n" +
                 "        <artifactId>" + ARTIFACT_ID + "</artifactId>\n" +
+                "        <version>" + VERSION + "</version>\n" +
                 "        <classifier>" + CLASSIFIER + "</classifier>\n" +
                 "        <scope>" + SCOPE + "</scope>\n" +
                 "    </dependency>\n" +

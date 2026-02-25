@@ -67,6 +67,7 @@ class ReplaceOperatonBpmJunit5Test implements RewriteTest {
                     <dependency>
                         <groupId>org.operaton.bpm</groupId>
                         <artifactId>operaton-engine</artifactId>
+                        <version>2.0.0-M3</version>
                         <classifier>junit5</classifier>
                         <scope>test</scope>
                     </dependency>
@@ -115,6 +116,7 @@ class ReplaceOperatonBpmJunit5Test implements RewriteTest {
                     <dependency>
                         <groupId>org.operaton.bpm</groupId>
                         <artifactId>operaton-engine</artifactId>
+                        <version>2.0.0-M3</version>
                         <classifier>junit5</classifier>
                         <scope>test</scope>
                     </dependency>
@@ -163,6 +165,7 @@ class ReplaceOperatonBpmJunit5Test implements RewriteTest {
                     <dependency>
                         <groupId>org.operaton.bpm</groupId>
                         <artifactId>operaton-engine</artifactId>
+                        <version>2.0.0-M3</version>
                         <classifier>junit5</classifier>
                         <scope>test</scope>
                     </dependency>
