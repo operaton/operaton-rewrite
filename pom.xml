@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <openrewrite.version>3.36.0</openrewrite.version>
+        <openrewrite.version>3.37.0</openrewrite.version>
         <junit-jupiter.version>6.0.2</junit-jupiter.version>
         <deploy.skip>true</deploy.skip>
     </properties>
